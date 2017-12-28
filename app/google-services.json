@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "342553909755",
+    "project_id": "firebase-autokartz"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:342553909755:android:6a9b5d17a4d011bd",
+        "android_client_info": {
+          "package_name": "com.autokartz.autokartz"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "342553909755-3lvh7sbic8e0ecvtbkgnah0u6uknamca.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.autokartz.autokartz",
+            "certificate_hash": "a0d314fd2f01b688afa910680c12a1012dde00b4"
+          }
+        },
+        {
+          "client_id": "342553909755-366pa51tu39pidoov1la1cq7d6n3j90e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBhHHfsa5CUSQnTyodUdKRV63FfbqRDGLc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
