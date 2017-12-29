@@ -1,19 +1,21 @@
 {
   "project_info": {
-    "project_number": "342553909755",
-    "project_id": "firebase-autokartz"
+    "project_number": "519083994797",
+    "firebase_url": "https://autokartz-f4d2c.firebaseio.com",
+    "project_id": "autokartz-f4d2c",
+    "storage_bucket": "autokartz-f4d2c.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:342553909755:android:6a9b5d17a4d011bd",
+        "mobilesdk_app_id": "1:519083994797:android:6a9b5d17a4d011bd",
         "android_client_info": {
           "package_name": "com.autokartz.autokartz"
         }
       },
       "oauth_client": [
         {
-          "client_id": "342553909755-3lvh7sbic8e0ecvtbkgnah0u6uknamca.apps.googleusercontent.com",
+          "client_id": "519083994797-ks7smjjtn2r59ojbqm055r57d1ctrupm.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.autokartz.autokartz",
@@ -21,13 +23,13 @@
           }
         },
         {
-          "client_id": "342553909755-366pa51tu39pidoov1la1cq7d6n3j90e.apps.googleusercontent.com",
+          "client_id": "519083994797-7cfcq72i8t8a93j2u4sjv4cidqa4bqq4.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBhHHfsa5CUSQnTyodUdKRV63FfbqRDGLc"
+          "current_key": "AIzaSyDqdGlJ1w43HAeqkaVA7ClKJECE2aN4QT0"
         }
       ],
       "services": {
@@ -35,11 +37,16 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "519083994797-7cfcq72i8t8a93j2u4sjv4cidqa4bqq4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
-          "status": 1
+          "status": 2
         }
       }
     }
