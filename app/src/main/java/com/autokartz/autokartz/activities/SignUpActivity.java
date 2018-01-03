@@ -15,6 +15,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.autokartz.autokartz.R;
+import com.autokartz.autokartz.utils.LoginDataBaseAdapter;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -31,11 +32,14 @@ public class SignUpActivity extends AppCompatActivity {
     EditText mRePassword;
     Button mSignup;
     private FirebaseAuth mAuth;
+    LoginDataBaseAdapter loginDataBaseAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
+        loginDataBaseAdapter = new LoginDataBaseAdapter(this);
+        loginDataBaseAdapter = loginDataBaseAdapter.open();
         init();
         mAuth = FirebaseAuth.getInstance();
         mSignup.setOnClickListener(new View.OnClickListener() {
@@ -105,8 +109,10 @@ public class SignUpActivity extends AppCompatActivity {
             snackbar.show();
 
         }
+        //Store data in sqlite
+        loginDataBaseAdapter.insertEntry(email, password);
 
-
+        //Store data in fireabse
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
@@ -147,6 +153,14 @@ public class SignUpActivity extends AppCompatActivity {
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
         updateUI(currentUser);
+    }
+
+    @Override
+    protected void onDestroy() {
+// TODO Auto-generated method stub
+        super.onDestroy();
+
+        loginDataBaseAdapter.close();
     }
 
     private void updateUI(FirebaseUser currentUser) {

@@ -9,87 +9,90 @@
     tools:context="com.autokartz.autokartz.activities.MainDashboard">
 
     <TextView
+        android:id="@+id/carchassis_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/mar_5"
+        android:ems="10"
+        android:hint="@string/car_chassis_number"
+        android:inputType="textPersonName"
+        android:textSize="@dimen/textSize30sp" />
+
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/mar_10"
         android:text="@string/brand"
         android:textColor="@color/Black"
-        android:textSize="@dimen/textSize18sp"/>
+        android:textSize="@dimen/textSize18sp" />
 
     <Spinner
         android:id="@+id/carbrand_spinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/mar_10"
-        android:entries="@string/brand"/>
+        android:entries="@string/brand" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/model"
         android:layout_marginTop="@dimen/mar_10"
+        android:text="@string/model"
         android:textColor="@color/Black"
-        android:textSize="@dimen/textSize18sp"/>
+        android:textSize="@dimen/textSize18sp" />
 
     <Spinner
         android:id="@+id/modelcar_spinner"
         android:layout_width="match_parent"
-        android:layout_marginTop="@dimen/mar_10"
         android:layout_height="wrap_content"
-        android:entries="@string/model"/>
+        android:layout_marginTop="@dimen/mar_10"
+        android:entries="@string/model" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/year"
         android:layout_marginTop="@dimen/mar_10"
+        android:text="@string/year"
         android:textColor="@color/Black"
-        android:textSize="@dimen/textSize18sp"/>
+        android:textSize="@dimen/textSize18sp" />
 
     <Spinner
         android:id="@+id/year_spinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/mar_10"
-        android:entries="@string/year"/>
+        android:entries="@string/year" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/mar_10"
         android:text="@string/car_chassis_number"
-        android:layout_marginTop="@dimen/mar_10"
         android:textColor="@color/Black"
-        android:textSize="@dimen/textSize18sp"/>
+        android:textSize="@dimen/textSize18sp" />
 
-    <EditText
-        android:id="@+id/carchassis_et"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:layout_marginTop="@dimen/mar_10"
-        android:hint="@string/car_chassis_number"
-        android:inputType="textPersonName" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/mar_10"
         android:text="@string/category"
         android:textColor="@color/Black"
-        android:layout_marginTop="@dimen/mar_10"
-        android:textSize="@dimen/textSize18sp"/>
+        android:textSize="@dimen/textSize18sp" />
 
     <Spinner
         android:id="@+id/carcategory_spinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/mar_10"
-        android:entries="@string/category"/>
+        android:entries="@string/category" />
 
     <Button
         android:id="@+id/carsubmit_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/mar_20"
-        android:textSize="@dimen/textSize20sp"
-        android:text="@string/submit" />
+        android:text="@string/submit"
+        android:textSize="@dimen/textSize20sp" />
 
 </LinearLayout>
