@@ -1,21 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.autokartz.autokartz.MainDashboard">
+    android:orientation="vertical"
+    android:padding="@dimen/mar_10"
+    tools:context="com.autokartz.autokartz.activities.MainDashboard">
 
-
-    <Button
-        android:id="@+id/button2"
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="134dp"
-        android:layout_marginStart="134dp"
-        android:layout_marginTop="21dp"
-        android:text="Button" />
-</RelativeLayout>
+        android:text="@string/brand"
+        android:textColor="@color/Black"
+        android:textSize="@dimen/textSize18sp"/>
+
+    <Spinner
+        android:id="@+id/carbrand_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/mar_10"
+        android:entries="@string/brand"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/model"
+        android:layout_marginTop="@dimen/mar_10"
+        android:textColor="@color/Black"
+        android:textSize="@dimen/textSize18sp"/>
+
+    <Spinner
+        android:id="@+id/modelcar_spinner"
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/mar_10"
+        android:layout_height="wrap_content"
+        android:entries="@string/model"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/year"
+        android:layout_marginTop="@dimen/mar_10"
+        android:textColor="@color/Black"
+        android:textSize="@dimen/textSize18sp"/>
+
+    <Spinner
+        android:id="@+id/year_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/mar_10"
+        android:entries="@string/year"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/car_chassis_number"
+        android:layout_marginTop="@dimen/mar_10"
+        android:textColor="@color/Black"
+        android:textSize="@dimen/textSize18sp"/>
+
+    <EditText
+        android:id="@+id/carchassis_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:layout_marginTop="@dimen/mar_10"
+        android:hint="@string/car_chassis_number"
+        android:inputType="textPersonName" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/category"
+        android:textColor="@color/Black"
+        android:layout_marginTop="@dimen/mar_10"
+        android:textSize="@dimen/textSize18sp"/>
+
+    <Spinner
+        android:id="@+id/carcategory_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/mar_10"
+        android:entries="@string/category"/>
+
+    <Button
+        android:id="@+id/carsubmit_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/mar_20"
+        android:textSize="@dimen/textSize20sp"
+        android:text="@string/submit" />
+
+</LinearLayout>

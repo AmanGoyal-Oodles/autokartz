@@ -1,4 +1,4 @@
-package com.autokartz.autokartz;
+package com.autokartz.autokartz.activities;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -14,16 +14,13 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.auth.api.Auth;
+import com.autokartz.autokartz.R;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
-import com.google.android.gms.auth.api.signin.GoogleSignInResult;
-import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.ApiException;
-import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthCredential;
@@ -33,16 +30,18 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 
 public class LoginActivity extends AppCompatActivity implements OnClickListener {
+
+
     // GoogleSignInClient mGoogleSignInClient;
     private static final String TAG = "Gsign";
     private static final int RC_SIGN_IN = 1;
     private GoogleSignInClient mGoogleSignInClient;
     private FirebaseAuth mAuth;
-    TextView mSignUp;
-    Button mLoginButton;
-    EditText mEmail;
-    EditText mPassword;
-    SignInButton signInButton;
+    private TextView mSignUp;
+    private Button mLoginButton;
+    private EditText mEmail;
+    private EditText mPassword;
+    private SignInButton signInButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,7 +60,6 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
         mSignUp.setOnClickListener(this);
         mLoginButton.setOnClickListener(this);
     }
-
 
     @Override
     protected void onStart() {
@@ -98,11 +96,11 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
 
         String password = mPassword.getText().toString().trim();
 
-
         if (TextUtils.isEmpty(email)) {
             mEmail.setError("Enter email");
             return;
         }
+
         if (TextUtils.isEmpty(password)) {
             mPassword.setError("Enter password");
             return;
@@ -155,8 +153,6 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
                 Log.w(TAG, "Google sign in failed", e);
                 // ...
             }
-
-
         }
     }
 
@@ -187,7 +183,6 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
                 });
     }
 
-
     private void init() {
         mEmail = (EditText) findViewById(R.id.et_emaillogin);
         mPassword = (EditText) findViewById(R.id.et_passwordlogin);
@@ -195,8 +190,7 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
         mLoginButton = (Button) findViewById(R.id.login_button);
         signInButton = (SignInButton) findViewById(R.id.sign_in_button);
         signInButton.setSize(SignInButton.SIZE_STANDARD); // Set the dimensions of the sign-in button.
-
-
     }
+
 }
 

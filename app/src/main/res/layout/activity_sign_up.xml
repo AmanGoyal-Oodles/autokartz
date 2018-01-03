@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:id="@+id/relativeLayout"
     android:layout_height="match_parent"
-    tools:context="com.autokartz.autokartz.SignUpActivity">
+    tools:context="com.autokartz.autokartz.activities.SignUpActivity">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -98,8 +98,8 @@
                 android:layout_marginTop="15dp"
                 android:text="Signup" />
 
-
         </LinearLayout>
 
     </ScrollView>
+
 </RelativeLayout>
