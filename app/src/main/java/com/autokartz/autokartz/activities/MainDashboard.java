@@ -41,10 +41,10 @@ public class MainDashboard extends AppCompatActivity {
         ButterKnife.bind(this);
         context = MainDashboard.this;
         init();
-        String Email = tool.getSharedPreference("Email", context);
+        tool.getSharedPreference("Email", context);
         String Password = tool.getSharedPreference("Password", context);
-        Log.v("esh", Email);
-        Log.v("Psh", Password);
+       // Log.v("esh", Email);
+        Log.v("psh", Password);
         mCarBraND.setAdapter(carbrandadapter);
         mYear.setAdapter(caryearadapter);
         mCarCategory.setAdapter(carcategoryadapter);
