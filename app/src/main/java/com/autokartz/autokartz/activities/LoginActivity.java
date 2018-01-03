@@ -72,7 +72,6 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
         mSignUp.setOnClickListener(this);
         mLoginButton.setOnClickListener(this);
     }
-
     @Override
     protected void onStart() {
         super.onStart();
