@@ -37,6 +37,7 @@
     <dimen name="mar_200">200dp</dimen>
     <dimen name="mar_250">250dp</dimen>
     <dimen name="mar_300">300dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
 
 
 </resources>

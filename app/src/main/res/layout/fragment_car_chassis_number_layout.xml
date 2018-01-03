@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/mar_10">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/enter_car_chassis_number"
+        android:textColor="@color/Black"
+        android:layout_marginTop="@dimen/mar_15"
+        android:textSize="@dimen/textSize24sp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/mar_5"
+        android:inputType="textPhonetic"
+        android:textSize="@dimen/textSize18sp"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/Blue"
+        android:text="@string/submit"
+        android:layout_marginTop="@dimen/mar_15"
+        android:textColor="@color/White"
+        android:textSize="@dimen/textSize18sp"/>
+
+</LinearLayout>

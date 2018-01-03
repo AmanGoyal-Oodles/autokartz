@@ -12,6 +12,7 @@
     <string name="car_chassis_number">Car Chassis Number</string>
     <string name="category">Category</string>
     <string name="submit">Submit</string>
+    <string name="enter_car_chassis_number">Enter Car Chassis Number</string>
 
     <string-array name="CAR_BRAND">
         <item>Select Car Brand</item>
@@ -106,5 +107,23 @@
         <item>2011</item>
         <item>Tool Kit</item>
     </string-array>
-    .
+
+    <string-array name="DRAWER_ITEMS">
+        <item>Home</item>
+        <item>Enquire Form</item>
+        <item>Transaction History</item>
+        <item>Orders</item>
+        <item>My Account</item>
+        <item>Company URL</item>
+    </string-array>
+
+    <string name="title_activity_main_dashboard">MainDashboardActivity</string>
+    <string name="home">Home</string>
+    <string name="enquire_form">Enquire Form</string>
+    <string name="transaction_history">Transaction History</string>
+    <string name="orders">Orders</string>
+    <string name="my_account">My Account</string>
+    <string name="company_url">Company URL</string>
+    <string name="openDrawer">Open Drawer</string>
+    <string name="closeDrawer">CloseDrawer</string>
 </resources>
