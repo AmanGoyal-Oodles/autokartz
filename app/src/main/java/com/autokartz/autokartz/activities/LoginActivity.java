@@ -126,6 +126,7 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
                         // ...
                     }
                 });
+
     }
 
     private void signIn() {
