@@ -1,6 +1,9 @@
 package com.autokartz.autokartz.activities;
 
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -15,6 +18,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.autokartz.autokartz.R;
+import com.autokartz.autokartz.utils.LoginDataBaseAdapter;
+import com.autokartz.autokartz.utils.tool;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -30,25 +35,32 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 
 public class LoginActivity extends AppCompatActivity implements OnClickListener {
-
-
-    // GoogleSignInClient mGoogleSignInClient;
     private static final String TAG = "Gsign";
     private static final int RC_SIGN_IN = 1;
-    private GoogleSignInClient mGoogleSignInClient;
+    private GoogleSignInClient mGoogleSignInClient;   // GoogleSignInClient mGoogleSignInClient;
     private FirebaseAuth mAuth;
     private TextView mSignUp;
+    Context context;
     private Button mLoginButton;
     private EditText mEmail;
     private EditText mPassword;
     private SignInButton signInButton;
+    ProgressDialog mprogressDialogue;
+    LoginDataBaseAdapter loginDataBaseAdapter;
+    SharedPreferences mPref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        init();
+        initViews();
+        context = LoginActivity.this;
+
+        // create a instance of SQLite Database
+        loginDataBaseAdapter = new LoginDataBaseAdapter(this);
+        loginDataBaseAdapter = loginDataBaseAdapter.open();
         mAuth = FirebaseAuth.getInstance();
+        mprogressDialogue = new ProgressDialog(this);
         // Configure sign-in to request the user's ID, email address, and basic
         // profile. ID and basic profile are included in DEFAULT_SIGN_IN.
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -60,7 +72,6 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
         mSignUp.setOnClickListener(this);
         mLoginButton.setOnClickListener(this);
     }
-
     @Override
     protected void onStart() {
         super.onStart();
@@ -77,7 +88,7 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.sign_in_button:
-                signIn();
+                googleSignIn();
                 break;
             case R.id.register_button:
                 Intent intent = new Intent(LoginActivity.this, SignUpActivity.class);
@@ -92,9 +103,12 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
 
     private void startLogin() {
 
-        String email = mEmail.getText().toString().trim();
+        mprogressDialogue.setMessage("logging in");
+        mprogressDialogue.show();
 
-        String password = mPassword.getText().toString().trim();
+        final String email = mEmail.getText().toString().trim();
+
+        final String password = mPassword.getText().toString().trim();
 
         if (TextUtils.isEmpty(email)) {
             mEmail.setError("Enter email");
@@ -106,6 +120,19 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
             return;
         }
 
+        // fetch the Password form database for respective user name
+        String storedPassword = loginDataBaseAdapter.getSinlgeEntry(email);
+
+
+        // check if the Stored password matches with database Password entered by user
+        if (password.equals(storedPassword)) {
+            Toast.makeText(LoginActivity.this, "Login Successfull", Toast.LENGTH_LONG).show();
+            //dialog.dismiss();
+        } else {
+            Toast.makeText(LoginActivity.this, "User Name or Password does not match", Toast.LENGTH_LONG).show();
+        }
+
+
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
@@ -115,6 +142,15 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
                             Log.d(TAG, "signInWithEmail:success");
                             Toast.makeText(LoginActivity.this, "Authentication .",
                                     Toast.LENGTH_SHORT).show();
+
+                            tool.setSharedPreference("Email", email, context);
+                            tool.setSharedPreference("Password", password, context);
+                            Intent intent = new Intent(LoginActivity.this
+                                    , MainDashboard.class);
+                            startActivity(intent);
+                            mprogressDialogue.dismiss();
+                            finish();
+
 
                         } else {
                             // If sign in fails, display a message to the user.
@@ -126,9 +162,12 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
                         // ...
                     }
                 });
+
     }
 
-    private void signIn() {
+    private void googleSignIn() {
+        mprogressDialogue.setMessage("logging in");
+        mprogressDialogue.show();
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
         startActivityForResult(signInIntent, RC_SIGN_IN);
     }
@@ -167,8 +206,11 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithCredential:success");
-                            Toast.makeText(LoginActivity.this, "Authentication .",
-                                    Toast.LENGTH_SHORT).show();
+                            // Toast.makeText(LoginActivity.this, "Authentication .", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(LoginActivity.this
+                                    , MainDashboard.class);
+                            startActivity(intent);
+                            finish();
                             FirebaseUser user = mAuth.getCurrentUser();
                             // updateUI(user);
                         } else {
@@ -183,7 +225,7 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
                 });
     }
 
-    private void init() {
+    private void initViews() {
         mEmail = (EditText) findViewById(R.id.et_emaillogin);
         mPassword = (EditText) findViewById(R.id.et_passwordlogin);
         mSignUp = (TextView) findViewById(R.id.register_button);
