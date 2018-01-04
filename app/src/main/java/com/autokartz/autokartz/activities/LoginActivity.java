@@ -230,7 +230,8 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
         mPassword = (EditText) findViewById(R.id.et_passwordlogin);
         mSignUp = (TextView) findViewById(R.id.register_button);
         mLoginButton = (Button) findViewById(R.id.login_button);
-        signInButton = (SignInButton) findViewById(R.id.sign_in_button);
+        /*
+        signInButton = (SignInButton) findViewById(R.id.sign_in_button);*/
         signInButton.setSize(SignInButton.SIZE_STANDARD); // Set the dimensions of the sign-in button.
     }
 
